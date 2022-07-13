@@ -14,7 +14,7 @@
 
 <body>
     <header class="navbar-fixed">
-        <nav>
+        <nav class="navBar">
             <div class="nav-wrapper">
                 <ul>
                     <li>
@@ -24,14 +24,14 @@
                 <ul class="right">
                     <li><a href="/about">About</a></li>
                     <li><a href="/crypto">View All Crypto</a></li>
-                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="{% url 'crypto_create'%}">Add Crypto</a></li>
 
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
+    <footer class="page-footer pageFooter">
         <div class="right">
             All Rights Reserved, © 2022 Cryptfolio
         </div>

@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import CreateView
 #from django.views.generic.detail import ListView
 from .models import Crypto
 
@@ -38,3 +39,9 @@ def crypto_index(request):
 def crypto_detail(request, crypto_id):
     crypto = Crypto.objects.get(id=crypto_id)
     return render(request, 'cryptos/detail.html', {'crypto': crypto})
+
+
+#CUD Class Bases Views
+class CryptoCreate(CreateView):
+    model = Crypto 
+    fields = '__all__'

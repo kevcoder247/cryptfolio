@@ -6,5 +6,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('crypto/', views.crypto_index, name='index'),
     path('crypto/<int:crypto_id>/', views.crypto_detail, name='detail'),
-
+    path('crypto/create/', views.CryptoCreate.as_view(), name='crypto_create'),
 ]
