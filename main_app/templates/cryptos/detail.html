@@ -6,5 +6,9 @@
         <p>Price: {{crypto.price}}</p>
         <p>Rank: {{crypto.rank}}</p>
     </div>
+    <div class="card-action">
+        <a href="{% url 'crypto_update' crypto.id %}">Edit</a>
+        <a href="{% url 'crypto_delete' crypto.id %}">Delete</a>
+    </div>
 </div>
 {% endblock %}

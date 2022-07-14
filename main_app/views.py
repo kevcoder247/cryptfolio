@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+#from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 #from django.views.generic.detail import ListView
 from .models import Crypto
 
@@ -45,3 +46,11 @@ def crypto_detail(request, crypto_id):
 class CryptoCreate(CreateView):
     model = Crypto 
     fields = '__all__'
+
+class CryptoUpdate(UpdateView):
+    model = Crypto
+    fields = ['price', 'rank']
+
+class CryptoDelete(DeleteView):
+    model = Crypto
+    success_url = '/crypto/'
