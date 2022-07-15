@@ -21,21 +21,31 @@
                         <a href="/" class="left brand-logo"> CryptFolio</a>
                     </li>
                 </ul>
-                <ul class="right">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/crypto">View All Crypto</a></li>
-                    <li><a href="{% url 'crypto_create'%}">Add Crypto</a></li>
 
+
+                <ul class="right">
+                    <!-- changes below -->
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'crypto_create' %}">Add Crypto</a></li>
+                    <li><a href="{% url 'index' %}">All Crypto</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
                 </ul>
+
+
+
             </div>
         </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer pageFooter">
+    <!-- <footer class="page-footer pageFooter">
         <div class="right">
             All Rights Reserved, © 2022 Cryptfolio
         </div>
-    </footer>
+    </footer> -->
 </body>
 
 </html>
