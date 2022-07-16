@@ -38,6 +38,7 @@ cryptos =[
     Crypto('Shiba Inu', '$0.000010', 10),
     ]
 '''
+
 @login_required
 def crypto_index(request):
     cryptos = Crypto.objects.filter(user=request.user)
@@ -52,7 +53,7 @@ def crypto_detail(request, crypto_id):
 #CUD Class Bases Views
 class CryptoCreate(LoginRequiredMixin, CreateView):
     model = Crypto 
-    fields = '__all__'
+    fields = ['name', 'price', 'qty',  'date']
     
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -62,7 +63,7 @@ class CryptoCreate(LoginRequiredMixin, CreateView):
 
 class CryptoUpdate(LoginRequiredMixin, UpdateView):
     model = Crypto
-    fields = ['price', 'rank']
+    fields = ['price', 'qty']
 
 
 class CryptoDelete(LoginRequiredMixin, DeleteView):

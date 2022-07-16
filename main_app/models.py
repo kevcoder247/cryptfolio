@@ -6,11 +6,12 @@ from django.contrib.auth.models import User
 class Crypto(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
-    rank = models.IntegerField()
-    
+    qty = models.IntegerField()
+    date = models.CharField(max_length=20)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
     def get_absolute_url(self):
         return reverse('detail', kwargs={'crypto_id': self.id})
+

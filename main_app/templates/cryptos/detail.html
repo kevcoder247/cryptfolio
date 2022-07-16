@@ -4,7 +4,8 @@
     <div class="card-content">
         <span class="card-title">{{crypto.name}}</span>
         <p>Price: {{crypto.price}}</p>
-        <p>Rank: {{crypto.rank}}</p>
+        <p>Qty: {{crypto.qty}}</p>
+        <p>Date: {{crypto.date}}</p>
     </div>
     <div class="card-action">
         <a href="{% url 'crypto_update' crypto.id %}">Edit</a>
