@@ -1,0 +1,1 @@
+web: gunicorn cryptfolio.wsgi
