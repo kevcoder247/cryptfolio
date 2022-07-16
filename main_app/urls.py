@@ -9,5 +9,5 @@ urlpatterns = [
     path('crypto/create/', views.CryptoCreate.as_view(), name='crypto_create'),
     path('crypto/<int:pk>/update/', views.CryptoUpdate.as_view(), name='crypto_update'),
     path('crypto/<int:pk>/delete/', views.CryptoDelete.as_view(), name='crypto_delete'),
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
